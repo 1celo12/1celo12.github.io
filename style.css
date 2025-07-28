@@ -42,12 +42,21 @@ section h2 {
 }
 
 ul {
-    list-style: none;
-    padding-left: 1rem;
+    list-style: none; /* Hide default bullet */
+    padding-left: 1rem; /* Add some space for the custom bullet */
 }
 
 ul li {
     margin-bottom: 0.5rem;
+    padding-left: 1em; /* Add padding to the left of the text to make space for the bullet */
+    position: relative; /* Needed for absolute positioning of the pseudo-element */
+}
+
+ul li::before {
+    content: '\2022';  /* Unicode character for a filled bullet */
+    color: #0066cc;      /* Deep blue color, same as header */
+    position: absolute;
+    left: 0;            /* Position the bullet at the beginning of the padding */
 }
 
 .job, .education-item {
